@@ -39,9 +39,9 @@ public class Demo {
 		 capabilities.setJavascriptEnabled(true);
 	     //capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		//wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), (Capabilities) options);
-	   // wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
-	    wb = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-	   // wb = new ChromeDriver(capabilities);
+	      wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
+	   wb = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+	    //wb = new ChromeDriver(capabilities);
 		wb.get("http://www.dialpadbeta.com/app");
 	}
 	
