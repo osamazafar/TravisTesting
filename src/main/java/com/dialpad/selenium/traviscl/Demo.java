@@ -29,7 +29,7 @@ public class Demo {
 	public void start() throws InterruptedException, MalformedURLException
 	{
 		
-		//System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
 		 
 		 
 		 
@@ -58,12 +58,12 @@ public class Demo {
 		Thread.sleep(2000);
 		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click(); 
 		Thread.sleep(2000);
-		/*wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(SupervisorPassword);
+		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(SupervisorPassword);
 		Thread.sleep(2000);
 		wb.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
 		Thread.sleep(2000);
 		wb.findElement(By.xpath("//*[@id=\"submit_approve_access\"]/content")).click();
-		Thread.sleep(10000);*/
+		Thread.sleep(10000);
 		System.out.println("Clicked on closing");
 
 		System.out.println("printing: ");
