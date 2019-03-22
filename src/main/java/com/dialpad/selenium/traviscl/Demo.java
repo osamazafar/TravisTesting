@@ -41,10 +41,10 @@ public class Demo {
 		 Thread.sleep(5000);
 	     capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		//wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), (Capabilities) options);
-	  // wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
+	   wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
 	  // wb = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 	   
-	     wb = new ChromeDriver(capabilities);
+	     //wb = new ChromeDriver(capabilities);
 		wb.get("http://www.dialpadbeta.com/app");
 	}
 	
@@ -64,7 +64,7 @@ public class Demo {
 		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(SupervisorPassword);
 		Thread.sleep(2000);
 		wb.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
-		Thread.sleep(2000);
+		
 		wb.findElement(By.xpath("//*[@id=\"submit_approve_access\"]/content")).click();
 
 		Thread.sleep(5000);
