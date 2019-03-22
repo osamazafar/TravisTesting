@@ -11,14 +11,14 @@ addons:
   chrome: stable
 
 services:
- - docker
+  - xvfb 
+# - docker
 
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
 
-env:
-  global:
-    - TEST_SLEEPS="0.7"
-    - ADDED_TEST_SLEEP="6.5"
-    - DOCKER_VERSION="stable"
 
 
 install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
@@ -30,7 +30,7 @@ install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver 
 
 
-before_install: bash docker_bash.sh
+#before_install: bash docker_bash.sh
 
 script: bash code_run.sh
 
