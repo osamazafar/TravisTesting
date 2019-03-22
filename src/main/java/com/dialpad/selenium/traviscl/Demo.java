@@ -56,14 +56,14 @@ public class Demo {
 		wb.findElement(By.cssSelector("#identifierNext > content > span")).click();
 		//wb.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS); 
 		Thread.sleep(2000);
-		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click(); 
+		/*wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click(); 
 		Thread.sleep(2000);
 		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(SupervisorPassword);
 		Thread.sleep(2000);
 		wb.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
 		Thread.sleep(2000);
 		wb.findElement(By.xpath("//*[@id=\"submit_approve_access\"]/content")).click();
-		Thread.sleep(10000);
+		Thread.sleep(10000);*/
 		System.out.println("Clicked on closing");
 
 		System.out.println("printing: ");

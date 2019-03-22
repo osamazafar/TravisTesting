@@ -14,7 +14,7 @@ services:
  - docker
 
 
-before_install: bash docker_run.sh
+before_install: bash docker_bash.sh
 
 install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
   - wget -N http://chromedriver.storage.googleapis.com/2.46/chromedriver_linux64.zip -P ~/
