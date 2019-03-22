@@ -29,7 +29,7 @@ public class Demo {
 	public void start() throws InterruptedException, MalformedURLException
 	{
 		
-		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
+		//System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
 		 
 		 
 		 
@@ -37,34 +37,34 @@ public class Demo {
 		 capabilities.setCapability("version", "");
 		 capabilities.setPlatform(Platform.LINUX);
 		 capabilities.setJavascriptEnabled(true);
-		 options.addArguments("--headless");
+		 options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");
+		 Thread.sleep(5000);
 	     capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		//wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), (Capabilities) options);
-	      wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
+	   wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
 	  // wb = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-	    //wb = new ChromeDriver(capabilities);
+	   // wb = new ChromeDriver(capabilities);
 		wb.get("http://www.dialpadbeta.com/app");
 	}
 	
 	public void google_login() throws InterruptedException
 
 	{
-		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(wb, 10);
+		//DateTimeFormatter dtf;  
 		wb.findElement(By.id("google-login-button")).click();
 		Thread.sleep(300);
-		wb.findElement(By.id("identifierId")).click();
-		wb.findElement(By.id("identifierId")).sendKeys(SupervisorID);
-		wb.findElement(By.cssSelector("#identifierNext > content > span")).click();
-		//wb.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS); 
-		Thread.sleep(2000);
-		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click(); 
-		Thread.sleep(2000);
-		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(SupervisorPassword);
-		Thread.sleep(2000);
-		wb.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
-		Thread.sleep(2000);
-		wb.findElement(By.xpath("//*[@id=\"submit_approve_access\"]/content")).click();
-		Thread.sleep(10000);
+		WebElement e = wb.findElement(By.id("identifierId"));
+		e.click();
+		e.sendKeys(SupervisorID);
+		wb.findElement(By.cssSelector("#identifierNext > content > span")).click(); 
+		WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
+		e1.click(); 
+		e1.sendKeys(SupervisorPassword);
+		wb.findElement(By.id("passwordNext")).click();
+		wb.findElement(By.id("submit_approve_access")).click();
+		WebElement e2 = wait.until(ExpectedConditions.elementToBeClickable(By.className("icon-sm")));
+		e2.click();
 		System.out.println("Clicked on closing");
 
 		System.out.println("printing: ");
