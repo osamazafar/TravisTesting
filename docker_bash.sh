@@ -16,3 +16,4 @@ docker ps -a
 
 docker logs sh
 
+google-chrome-stable --headless --disable-gpu --remote-debugging-port=4444 http://localhost &

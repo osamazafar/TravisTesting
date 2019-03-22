@@ -24,7 +24,7 @@ public class Demo {
 	DesiredCapabilities capabilities;
 	String SupervisorID = "callback229@gmail.com";
 	String SupervisorPassword = "100California";
-	//ChromeOptions options = new ChromeOptions();
+	ChromeOptions options = new ChromeOptions();
 	
 	public void start() throws InterruptedException, MalformedURLException
 	{
@@ -37,7 +37,8 @@ public class Demo {
 		 capabilities.setCapability("version", "");
 		 capabilities.setPlatform(Platform.LINUX);
 		 capabilities.setJavascriptEnabled(true);
-	     //capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		 options.addArguments("--headless");
+	     capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		//wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), (Capabilities) options);
 	      wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
 	  // wb = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
