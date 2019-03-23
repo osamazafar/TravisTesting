@@ -10,10 +10,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 
 
@@ -31,20 +31,22 @@ public class Demo {
 		
 		//System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
 		 
-		 
-		 
+		 //options.setCapability(CapabilityType.PLATFORM, Platform.LINUX);
+		 options.setHeadless(true);
+		// options.setCapability(CapabilityType.BROWSER_NAME, "CHROME");*/
+		 options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");
+		 //options.setCapability(, Platform.LINUX);
 		 capabilities = DesiredCapabilities.chrome();
 		 capabilities.setCapability("version", "");
 		 capabilities.setPlatform(Platform.LINUX);
 		 capabilities.setJavascriptEnabled(true);
-		 options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");
+		 
 		 Thread.sleep(5000);
-	     capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-		//wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), (Capabilities) options);
-	   wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
-	  // wb = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+	    capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+	   wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), options);
+	   //wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), capabilities);
 	   
-	     //wb = new ChromeDriver(capabilities);
+	   // wb = new ChromeDriver(capabilities);
 		wb.get("http://www.dialpadbeta.com/app");
 	}
 	
@@ -57,9 +59,11 @@ public class Demo {
 		Thread.sleep(2000);
 		wb.findElement(By.id("identifierId")).click();
 		wb.findElement(By.id("identifierId")).sendKeys(SupervisorID);
+		System.out.println(wb.getTitle());
 		Thread.sleep(2000);
 		wb.findElement(By.cssSelector("#identifierNext > content > span")).click(); 
 		Thread.sleep(2000);
+		System.out.println("hh" + wb.getTitle());
 		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click(); 
 		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(SupervisorPassword);
 		Thread.sleep(2000);
