@@ -42,12 +42,13 @@ public class Demo
 		// options.setCapability(CapabilityType.PLATFORM, Platform.LINUX);
 		_options.setHeadless(true);
 		// options.setCapability(CapabilityType.BROWSER_NAME, "CHROME");*/
-		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
+		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4446");
 		// options.setCapability(, Platform.LINUX);
 		_capabilities = DesiredCapabilities.chrome();
 		_capabilities.setCapability("version", "");
 		_capabilities.setPlatform(Platform.LINUX);
 		_capabilities.setJavascriptEnabled(true);
+		
 
 		Thread.sleep(5000);
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);

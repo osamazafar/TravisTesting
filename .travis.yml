@@ -27,7 +27,7 @@ install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 
 
-#before_install: bash docker_bash.sh
+before_install: bash docker_bash.sh
 
 
 script: bash code_run.sh
