@@ -4,91 +4,84 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-
-
-
-
-public class Demo {
+public class Demo
+{
+	private static final Logger _logger = LoggerFactory.getLogger(Demo.class);
 	
-	WebDriver wb;
-	DesiredCapabilities capabilities;
-	String SupervisorID = "callback229@gmail.com";
-	String SupervisorPassword = "100California";
-	ChromeOptions options = new ChromeOptions();
+	private WebDriver _webDriver;
+	private DesiredCapabilities _capabilities;
+	final private String _supervisorId;
+	final private String _supervisorPassword;
+	private ChromeOptions _options = new ChromeOptions();
 	
+	public Demo(final String supervisorId, final String supervisorPassword)
+	{
+		_supervisorId = supervisorId;
+		_supervisorPassword = supervisorPassword;
+	}
+
 	public void start() throws InterruptedException, MalformedURLException
 	{
-		
-		//System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
-		 
-		 //options.setCapability(CapabilityType.PLATFORM, Platform.LINUX);
-		 options.setHeadless(true);
+
+		// System.setProperty("webdriver.chrome.driver",
+		// "/usr/local/share/chromedriver");
+
+		// options.setCapability(CapabilityType.PLATFORM, Platform.LINUX);
+		_options.setHeadless(true);
 		// options.setCapability(CapabilityType.BROWSER_NAME, "CHROME");*/
-		 options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");
-		 //options.setCapability(, Platform.LINUX);
-		 capabilities = DesiredCapabilities.chrome();
-		 capabilities.setCapability("version", "");
-		 capabilities.setPlatform(Platform.LINUX);
-		 capabilities.setJavascriptEnabled(true);
-		 
-		 Thread.sleep(5000);
-	    capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-	   wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), options);
-	   //wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), capabilities);
-	   
-	   // wb = new ChromeDriver(capabilities);
-		wb.get("http://www.dialpadbeta.com/app");
+		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
+		// options.setCapability(, Platform.LINUX);
+		_capabilities = DesiredCapabilities.chrome();
+		_capabilities.setCapability("version", "");
+		_capabilities.setPlatform(Platform.LINUX);
+		_capabilities.setJavascriptEnabled(true);
+
+		Thread.sleep(5000);
+		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
+		// wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), options);
+		_webDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4446/wd/hub"), _capabilities);
+
+		// wb = new ChromeDriver(capabilities);
+		_webDriver.get("http://www.dialpadbeta.com/app");
 	}
-	
+
 	public void google_login() throws InterruptedException
 
 	{
 		Thread.sleep(2000);
-		wb.findElement(By.id("google-login-button")).click();
+		_webDriver.findElement(By.id("google-login-button")).click();
 		Thread.sleep(300);
 		Thread.sleep(2000);
-		wb.findElement(By.id("identifierId")).click();
-		wb.findElement(By.id("identifierId")).sendKeys(SupervisorID);
-		System.out.println(wb.getTitle());
+		_webDriver.findElement(By.id("identifierId")).click();
+		_webDriver.findElement(By.id("identifierId")).sendKeys(_supervisorId);
+		_logger.info(_webDriver.getTitle());
 		Thread.sleep(2000);
-		wb.findElement(By.cssSelector("#identifierNext > content > span")).click(); 
+		_webDriver.findElement(By.cssSelector("#identifierNext > content > span")).click();
 		Thread.sleep(2000);
-		System.out.println("hh" + wb.getTitle());
-		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click(); 
-		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(SupervisorPassword);
+		_logger.info("hh" + _webDriver.getTitle());
+		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click();
+		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(_supervisorPassword);
 		Thread.sleep(2000);
-		wb.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
-		
-		wb.findElement(By.xpath("//*[@id=\"submit_approve_access\"]/content")).click();
+		_webDriver.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
+		Thread.sleep(2000);
+		_webDriver.findElement(By.xpath("//*[@id=\"submit_approve_access\"]/content")).click();
 
 		Thread.sleep(5000);
-		wb.findElement(By.cssSelector("#announcement-view > div.iblock.dialog-close.ann-close > svg")).click();
+		_webDriver.findElement(By.cssSelector("#announcement-view > div.iblock.dialog-close.ann-close > svg")).click();
 		Thread.sleep(100);
-		System.out.println("Clicked on closing");
+		_logger.info("Clicked on closing");
 
-		System.out.println("printing: ");
-		wb.quit();
-		System.out.println("Ending");
-		
-	}
-	
-	
-	public static void main(String[] args) throws InterruptedException, MalformedURLException {
-		// TODO Auto-generated method stub
-		Demo ob1 = new Demo();
-		ob1.start();
-		ob1.google_login();
+		_logger.info("printing: ");
+		_webDriver.quit();
+		_logger.info("Ending");
 
 	}
-
 }
