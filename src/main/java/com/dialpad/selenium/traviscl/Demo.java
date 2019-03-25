@@ -3,6 +3,7 @@ package com.dialpad.selenium.traviscl;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -66,7 +67,7 @@ public class Demo
 		_logger.info(_webDriver.getTitle());
 		
 		_logger.info("*************** BEFORE CLICK ********************");
-		_logger.info(_webDriver.getPageSource());
+		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getPageSource()));
 		
 		Thread.sleep(2000);
 		
@@ -82,7 +83,8 @@ public class Demo
 		_logger.info("hh" + _webDriver.getTitle());
 		
 		_logger.info("*************** AFTER CLICK ********************");
-		_logger.info(_webDriver.getPageSource());
+		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getPageSource()));
+		
 		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click();
 		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(_supervisorPassword);
 		Thread.sleep(2000);
