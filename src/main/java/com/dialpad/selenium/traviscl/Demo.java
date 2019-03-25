@@ -52,7 +52,7 @@ public class Demo
 		Thread.sleep(5000);
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
 		// wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), options);
-		//_webDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4446/wd/hub"), _capabilities);
+		_webDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4446/wd/hub"), _capabilities);
 
 		_webDriver = new ChromeDriver(_capabilities);
 		_webDriver.get("http://www.dialpadbeta.com/app");
