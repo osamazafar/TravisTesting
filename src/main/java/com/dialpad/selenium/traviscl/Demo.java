@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -53,7 +54,7 @@ public class Demo
 		// wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), options);
 		//_webDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4446/wd/hub"), _capabilities);
 
-		// wb = new ChromeDriver(capabilities);
+		_webDriver = new ChromeDriver(_capabilities);
 		_webDriver.get("http://www.dialpadbeta.com/app");
 	}
 
