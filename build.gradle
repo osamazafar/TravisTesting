@@ -63,10 +63,11 @@ repositories {
     jcenter()
 	mavenCentral()
 }*/
+
 jar
 {
 	from configurations.compile.collect {zipTree it}
-	manifest.attributes "Main-Class": "com.dialpad.selenium.traviscl.Demo"
-	}
+	manifest.attributes "Main-Class": "com.dialpad.selenium.traviscl.Main"
+}
 	
 
