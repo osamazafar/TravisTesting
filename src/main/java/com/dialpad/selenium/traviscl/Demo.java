@@ -2,6 +2,8 @@ package com.dialpad.selenium.traviscl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collections;
+import java.util.List;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.openqa.selenium.By;
@@ -84,6 +86,23 @@ public class Demo
 		
 		_logger.info("*************** AFTER CLICK ********************");
 		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getPageSource()));
+		
+		List<WebElement> elems = _webDriver.findElements(By.id("password"));
+		
+		if(elems == null || (elems != null && elems.size() == 0))
+		{
+			
+			_logger.info("PASSWORD ELEMNENT NOT FOUND");
+		}
+		else
+		{
+			_logger.info("PASSWORD ELEMNT FOUND : {}", elems.size());
+			
+			for(WebElement each : elems)
+			{
+				_logger.info(each.toString());
+			}
+		}
 		
 		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click();
 		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(_supervisorPassword);
