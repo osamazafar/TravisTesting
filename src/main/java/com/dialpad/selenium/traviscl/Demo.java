@@ -6,6 +6,7 @@ import java.net.URL;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -63,10 +64,25 @@ public class Demo
 		_webDriver.findElement(By.id("identifierId")).click();
 		_webDriver.findElement(By.id("identifierId")).sendKeys(_supervisorId);
 		_logger.info(_webDriver.getTitle());
+		
+		_logger.info("*************** BEFORE CLICK ********************");
+		_logger.info(_webDriver.getPageSource());
+		
 		Thread.sleep(2000);
-		_webDriver.findElement(By.cssSelector("#identifierNext > content > span")).click();
+		
+		_logger.info("**************** CLICKING **************************");
+		
+		WebElement elementToClick = _webDriver.findElement(By.cssSelector("#identifierNext > content > span"));
+		
+		_logger.info("Element to click info : {}", elementToClick);
+		
+		elementToClick.click();
+		
 		Thread.sleep(2000);
 		_logger.info("hh" + _webDriver.getTitle());
+		
+		_logger.info("*************** AFTER CLICK ********************");
+		_logger.info(_webDriver.getPageSource());
 		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click();
 		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(_supervisorPassword);
 		Thread.sleep(2000);
