@@ -20,7 +20,7 @@ cd build/libs
 
 docker cp /home/travis/build/osamazafar/TravisTesting/build/libs sh:TravisTesting.jar
 
-docker exec java -jar TravisTesting.jar
+docker java -jar TravisTesting.jar
 
 
 
