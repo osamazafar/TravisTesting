@@ -16,7 +16,7 @@ docker ps -a
 
 docker logs sh
 
-cd build/libs
+#cd build/libs
 
 docker cp /home/travis/build/osamazafar/TravisTesting/build/libs sh:/home/TravisTesting.jar
 
