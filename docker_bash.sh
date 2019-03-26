@@ -18,9 +18,9 @@ docker logs sh
 
 cd build/libs
 
-docker cp build/libs/TravisTesting.jar sh:TravisTesting.jar
+docker cp /home/travis/build/osamazafar/TravisTesting/build/libs sh:TravisTesting.jar
 
-docker exec java -jar TravisTesting.jar
+docker run java -jar TravisTesting.jar
 
 
 
