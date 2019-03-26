@@ -2,7 +2,6 @@ package com.dialpad.selenium.traviscl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -55,7 +54,7 @@ public class Demo
 		// wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), options);
 		_webDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4446/wd/hub"), _capabilities);
 
-		_webDriver = new ChromeDriver(_capabilities);
+		//_webDriver = new ChromeDriver(_capabilities);
 		_webDriver.get("http://www.dialpadbeta.com/app");
 	}
 
