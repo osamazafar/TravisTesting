@@ -16,8 +16,14 @@ docker ps -a
 
 docker logs sh
 
+cd build/libs
+
+docker cp build/libs/TravisTesting.jar sh:TravisTesting.jar
+
+docker exec java -jar TravisTesting.jar
 
 
-bash code_run.sh
+
+#bash code_run.sh
 
 google-chrome-stable --headless --disable-gpu --remote-debugging-port=4444 http://localhost &
