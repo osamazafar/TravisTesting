@@ -8,7 +8,9 @@ docker pull selenium/node-chrome
 
 docker ps -a
 
-docker run -d -p 127.0.0.1:4446:4444  --name sh  selenium/hub:3.141.59-lithium
+docker run -d -p 127.0.0.1:4446:4444 --name sh -e START_XVFB=false selenium/hub:3.141.59-lithium
+
+bash wait-for-grid.sh
 
 docker run -d -P --link sh:hub  --name chrome -P selenium/node-chrome:3.141.59-lithium
 
