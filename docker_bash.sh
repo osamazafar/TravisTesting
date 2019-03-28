@@ -8,11 +8,11 @@ docker pull selenium/node-chrome
 
 docker ps -a
 
-docker run -d -p 127.0.0.1:4446:4444 --name sh -e START_XVFB=false selenium/hub:3.141.59-lithium
+docker run -d -p 4444:4444 --net grid  --name sh -e START_XVFB=false selenium/hub:3.141.59-lithium
 
 bash wait-for-grid.sh
 
-docker run -d -P --link sh:hub  --name chrome -P selenium/node-chrome:3.141.59-lithium
+docker run -d -P --link sh:hub -v /dev/shm:/dev/shm  --name chrome -P selenium/node-chrome:3.141.59-lithium
 
 docker ps -a
 
@@ -20,7 +20,7 @@ docker logs sh
 
 #cd build/libs
 
-docker cp /build/libs/TravisTesting.jar sh:/opt/TravisTesting.jar
+docker cp /build/libs/TravisTesting.jar sh:/opt/bin/entry_point/TravisTesting.jar
 
 java -jar TravisTesting.jar
 
