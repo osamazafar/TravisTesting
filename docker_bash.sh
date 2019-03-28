@@ -22,7 +22,10 @@ docker logs sh
 
 docker cp /build/libs/TravisTesting.jar sh:/opt/bin/entry_point/TravisTesting.jar
 
+docker run -it sh /bin/bash
+
 java -jar TravisTesting.jar
+
 
 docker stop sh
 
