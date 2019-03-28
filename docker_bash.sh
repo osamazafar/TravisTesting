@@ -10,6 +10,8 @@ docker ps -a
 
 docker run -d -p 4444:4444  --name sh -e START_XVFB=false selenium/hub:3.141.59-lithium
 
+docker images
+
 docker run -d  --link sh:hub -v /dev/shm:/dev/shm  --name chrome  selenium/node-chrome:3.141.59-lithium
 
 docker ps -a
