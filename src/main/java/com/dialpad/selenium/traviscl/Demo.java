@@ -110,7 +110,7 @@ public class Demo
 		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(_supervisorPassword);
 		Thread.sleep(2000);
 		_webDriver.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		_webDriver.findElement(By.xpath("//*[@id=\"submit_approve_access\"]/content")).click();
 
 		Thread.sleep(5000);

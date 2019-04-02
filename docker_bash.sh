@@ -8,7 +8,7 @@ docker pull selenium/node-chrome
 
 docker ps -a
 
-docker run -d -p 4444:4444  --name sh -e START_XVFB=false selenium/hub:3.141.59-lithium
+docker run -d -p 127.0.0.1:4444:4444  --name sh -e selenium/hub:3.141.59-lithium
 
 docker images
 
