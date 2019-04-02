@@ -15,7 +15,7 @@ addons:
 before_install:
  - docker network create grid
  - docker pull selenium/hub
- - docker run -d -p 4444:4444 --net grid  --name sh selenium/hub
+ - docker run -d -p 127.0.0.1:4444:4444 --net grid  --name sh selenium/hub
  - docker pull selenium/node-chrome
  - docker run -d --net grid -e HUB_HOST=sh -v /dev/shm:/dev/shm --name chrome selenium/chrome-node
 
