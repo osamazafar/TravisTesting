@@ -10,5 +10,7 @@ dist: trusty
 addons:
   chrome: stable
 
+before_script:
+bash docker_bash.sh
 
 script: bash code_run.sh
