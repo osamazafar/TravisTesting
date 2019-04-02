@@ -12,7 +12,7 @@ docker run -d -p 127.0.0.1:4444:4444  --name sh -e selenium/hub
 
 docker images
 
-docker run -d  --link sh:hub -v /dev/shm:/dev/shm  --name chrome  selenium/node-chrome
+docker run -d -P  --link sh:hub -v /dev/shm:/dev/shm  --name chrome -P  selenium/node-chrome
 
 docker ps -a
 

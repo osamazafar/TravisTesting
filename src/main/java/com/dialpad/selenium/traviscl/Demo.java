@@ -108,10 +108,10 @@ public class Demo
 		
 		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click();
 		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(_supervisorPassword);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		_webDriver.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
 		Thread.sleep(10000);
-		_webDriver.findElement(By.xpath("//*[@id=\"submit_approve_access\"]/content")).click();
+		_webDriver.findElement(By.id("submit_approve_access")).click();
 
 		Thread.sleep(5000);
 		_webDriver.findElement(By.cssSelector("#announcement-view > div.iblock.dialog-close.ann-close > svg")).click();
