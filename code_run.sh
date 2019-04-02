@@ -20,6 +20,13 @@ docker pull selenium/node-chrome
 
 docker run -d -P --link sh:hub --name chrome -P selenium/node-chrome
 
+echo  "Checking process running"
+docker ps -a
+
+echo "Logs of hub"
+
+docker logs sh
+
 cd build/libs
 
 java -jar TravisTesting.jar
