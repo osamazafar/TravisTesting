@@ -12,7 +12,5 @@ services:
 addons:
   chrome: stable
 
-before_install:
-bash docker_bash.sh
 
 script: bash code_run.sh
