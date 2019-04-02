@@ -8,7 +8,7 @@ docker pull selenium/node-chrome
 
 docker ps -a
 
-docker run -d -p 127.0.0.1:4444:4444  --name sh  selenium/hub
+docker run -d -p 127.0.0.1:4446:4444  --name sh  selenium/hub
 
 docker images
 
