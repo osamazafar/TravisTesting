@@ -8,11 +8,11 @@ docker pull selenium/node-chrome
 
 docker ps -a
 
-docker run -d -p 127.0.0.1:4444:4444  --name sh -e selenium/hub
+docker run -d -p 127.0.0.1:4444:4444  --name sh -p selenium/hub
 
 docker images
 
-docker run -d -P  --link sh:hub -v /dev/shm:/dev/shm  --name chrome -P  selenium/node-chrome
+docker run -d -P  --link sh:hub -v /dev/shm:/dev/shm  --name chrome  selenium/node-chrome
 
 docker ps -a
 
@@ -29,7 +29,7 @@ docker logs sh
 
 #docker stop sh
 
-3docker stop chrome
+#docker stop chrome
 
 #bash code_run.sh
 
