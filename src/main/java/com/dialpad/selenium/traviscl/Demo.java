@@ -40,18 +40,13 @@ public class Demo
 
 		// options.setCapability(CapabilityType.PLATFORM, Platform.LINUX);
 		_options.setHeadless(true);
-		// options.setCapability(CapabilityType.BROWSER_NAME, "CHROME");*/
-		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4446");
-		// options.setCapability(, Platform.LINUX);
+	
+		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4444");
 		_capabilities = DesiredCapabilities.chrome();
 		_capabilities.setCapability("version", "");
 		_capabilities.setPlatform(Platform.LINUX);
 		_capabilities.setJavascriptEnabled(true);
-		
-
-		Thread.sleep(5000);
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
-		// wb = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), options);
 		_webDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), _capabilities);
 
 		//_webDriver = new ChromeDriver(_capabilities);
