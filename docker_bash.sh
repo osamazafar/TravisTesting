@@ -14,6 +14,8 @@ docker images
 
 docker run -d -P  --link sh:hub -v /dev/shm:/dev/shm  --name chrome  selenium/node-chrome
 
+sleep 3
+
 docker ps -a
 
 docker logs sh
