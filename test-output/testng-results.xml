@@ -2,44 +2,44 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="64432" started-at="2019-03-25T01:48:23Z" finished-at="2019-03-25T01:49:27Z">
+  <suite name="Default suite" duration-ms="69752" started-at="2019-04-09T17:43:02Z" finished-at="2019-04-09T17:44:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="64432" started-at="2019-03-25T01:48:23Z" finished-at="2019-03-25T01:49:27Z">
-      <class name="MyTest">
-        <test-method status="PASS" signature="start()[pri:0, instance:MyTest@22635ba0]" name="start" is-config="true" duration-ms="3948" started-at="2019-03-25T01:48:23Z" finished-at="2019-03-25T01:48:27Z">
+    <test name="Default test" duration-ms="69752" started-at="2019-04-09T17:43:02Z" finished-at="2019-04-09T17:44:12Z">
+      <class name="com.dialpad.selenium.traviscl.MyTest">
+        <test-method status="PASS" signature="start()[pri:0, instance:com.dialpad.selenium.traviscl.MyTest@6a01e23]" name="start" is-config="true" duration-ms="7586" started-at="2019-04-09T17:43:02Z" finished-at="2019-04-09T17:43:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method status="PASS" signature="start1()[pri:0, instance:MyTest@22635ba0]" name="start1" is-config="true" duration-ms="2904" started-at="2019-03-25T01:48:27Z" finished-at="2019-03-25T01:48:30Z">
+        <test-method status="PASS" signature="start1()[pri:0, instance:com.dialpad.selenium.traviscl.MyTest@6a01e23]" name="start1" is-config="true" duration-ms="4082" started-at="2019-04-09T17:43:10Z" finished-at="2019-04-09T17:43:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start1 -->
-        <test-method status="PASS" signature="googleLogin()[pri:0, instance:MyTest@22635ba0]" name="googleLogin" is-config="true" duration-ms="11294" started-at="2019-03-25T01:48:30Z" finished-at="2019-03-25T01:48:41Z">
+        <test-method status="PASS" signature="googleLogin()[pri:0, instance:com.dialpad.selenium.traviscl.MyTest@6a01e23]" name="googleLogin" is-config="true" duration-ms="12322" started-at="2019-04-09T17:43:14Z" finished-at="2019-04-09T17:43:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- googleLogin -->
-        <test-method status="PASS" signature="google_login()[pri:0, instance:MyTest@22635ba0]" name="google_login" is-config="true" duration-ms="11400" started-at="2019-03-25T01:48:41Z" finished-at="2019-03-25T01:48:52Z">
+        <test-method status="PASS" signature="google_login()[pri:0, instance:com.dialpad.selenium.traviscl.MyTest@6a01e23]" name="google_login" is-config="true" duration-ms="11092" started-at="2019-04-09T17:43:26Z" finished-at="2019-04-09T17:43:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- google_login -->
-        <test-method status="PASS" signature="New_tab()[pri:1, instance:MyTest@22635ba0]" name="New_tab" duration-ms="9153" started-at="2019-03-25T01:48:52Z" finished-at="2019-03-25T01:49:02Z">
+        <test-method status="PASS" signature="New_tab()[pri:1, instance:com.dialpad.selenium.traviscl.MyTest@6a01e23]" name="New_tab" duration-ms="9032" started-at="2019-04-09T17:43:37Z" finished-at="2019-04-09T17:43:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- New_tab -->
-        <test-method status="PASS" signature="loging_out()[pri:2, instance:MyTest@22635ba0]" name="loging_out" duration-ms="12812" started-at="2019-03-25T01:49:02Z" finished-at="2019-03-25T01:49:14Z">
+        <test-method status="PASS" signature="loging_out()[pri:2, instance:com.dialpad.selenium.traviscl.MyTest@6a01e23]" name="loging_out" duration-ms="12788" started-at="2019-04-09T17:43:46Z" finished-at="2019-04-09T17:43:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loging_out -->
-        <test-method status="PASS" signature="logingOut()[pri:3, instance:MyTest@22635ba0]" name="logingOut" duration-ms="12885" started-at="2019-03-25T01:49:14Z" finished-at="2019-03-25T01:49:27Z">
+        <test-method status="PASS" signature="logingOut()[pri:3, instance:com.dialpad.selenium.traviscl.MyTest@6a01e23]" name="logingOut" duration-ms="12819" started-at="2019-04-09T17:43:59Z" finished-at="2019-04-09T17:44:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logingOut -->
-        <test-method status="PASS" signature="end()[pri:0, instance:MyTest@22635ba0]" name="end" is-config="true" duration-ms="0" started-at="2019-03-25T01:49:27Z" finished-at="2019-03-25T01:49:27Z">
+        <test-method status="PASS" signature="end()[pri:0, instance:com.dialpad.selenium.traviscl.MyTest@6a01e23]" name="end" is-config="true" duration-ms="0" started-at="2019-04-09T17:44:12Z" finished-at="2019-04-09T17:44:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- MyTest -->
+      </class> <!-- com.dialpad.selenium.traviscl.MyTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

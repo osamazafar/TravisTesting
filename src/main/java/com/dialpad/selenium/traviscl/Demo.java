@@ -77,7 +77,7 @@ public class Demo
 		
 		elementToClick.click();
 		
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		_logger.info("hh" + _webDriver.getTitle());
 		
 		_logger.info("*************** AFTER CLICK ********************");
@@ -101,8 +101,7 @@ public class Demo
 			}
 		}
 		
-		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click();
-		_webDriver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(_supervisorPassword);
+		_webDriver.findElement(By.name("password")).sendKeys(_supervisorPassword);
 		Thread.sleep(5000);
 		_webDriver.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
 		Thread.sleep(10000);

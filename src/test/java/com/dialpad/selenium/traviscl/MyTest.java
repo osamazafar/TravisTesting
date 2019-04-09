@@ -39,29 +39,18 @@ public class MyTest {
 		
 		_logger.debug("Starting my test");
 		
-	     FailureTestWatcher testWatcher = new FailureTestWatcher();
+	    // FailureTestWatcher testWatcher = new FailureTestWatcher();
 
 		options = new ChromeOptions();
 		capabilities = DesiredCapabilities.chrome();
-		System.setProperty("webdriver.chrome.logfile", "/Users/osama/Downloads/chromedriver.log");
 		System.setProperty("webdriver.chrome.verboseLogging", "true");
 
 		options.addArguments("--headless");
 		options.addArguments("--disable-gpu");
-		/*
-		 * options.setCapability(CapabilityType.PLATFORM, Platform.LINUX);
-		 * options.setHeadless(true); options.setCapability(CapabilityType.BROWSER_NAME,
-		 * "CHROME");
-		 */
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		capabilities.setCapability("version", "");
 		capabilities.setPlatform(Platform.LINUX);
-
-		// ChromeDriver wb = new ChromeDriver(options);
-		// wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"),
-		// (Capabilities) options);
-		wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), capabilities);
-		// wb = new ChromeDriver(options);
+		wb = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 		wb.get("http://www.dialpadbeta.com/app");
 	}
 
@@ -73,19 +62,11 @@ public class MyTest {
 		options.addArguments("headless");
 		options.addArguments("--disable-notifications");
 		Thread.sleep(100);
-		/*
-		 * options.setCapability(CapabilityType.PLATFORM, Platform.LINUX);
-		 * options.setHeadless(true); options.setCapability(CapabilityType.BROWSER_NAME,
-		 * "CHROME");
-		 */
 		capabilities = DesiredCapabilities.chrome();
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		capabilities.setCapability("version", "");
 		capabilities.setPlatform(Platform.LINUX);
-
-		// ChromeDriver wb = new ChromeDriver(options);
-		// wb = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), options);
-		wb1 = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), capabilities);
+		wb1 = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 		// wb1 = new ChromeDriver(options);
 
 		wb1.get("http://www.dialpadbeta.com/app");
