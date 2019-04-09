@@ -78,6 +78,7 @@ public class Demo
 		elementToClick.click();
 		
 		Thread.sleep(10000);
+		elementToClick.click();
 		_logger.info("hh" + _webDriver.getTitle());
 		
 		_logger.info("*************** AFTER CLICK ********************");
