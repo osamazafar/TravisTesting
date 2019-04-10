@@ -9,7 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -35,10 +34,6 @@ public class Demo
 	public void start() throws InterruptedException, MalformedURLException
 	{
 
-		// System.setProperty("webdriver.chrome.driver",
-		// "/usr/local/share/chromedriver");
-
-		// options.setCapability(CapabilityType.PLATFORM, Platform.LINUX);
 		_options.setHeadless(true);
 	
 		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4444");
@@ -65,7 +60,7 @@ public class Demo
 		_logger.info(_webDriver.getTitle());
 		
 		_logger.info("*************** BEFORE CLICK ********************");
-		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getPageSource()));
+		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getCurrentUrl()));
 		
 		Thread.sleep(2000);
 		
@@ -82,7 +77,7 @@ public class Demo
 		_logger.info("hh" + _webDriver.getTitle());
 		
 		_logger.info("*************** AFTER CLICK ********************");
-		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getPageSource()));
+		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getCurrentUrl()));
 		
 		List<WebElement> elems = _webDriver.findElements(By.id("password"));
 		
