@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.dialpad.selenium.traviscl.SauceLab">
+      <class name="com.dialpad.selenium.traviscl.MyTest">
         <methods>
-          <include name="shouldOpenChrome"/>
+          <include name="logingOut"/>
+          <include name="googleLogin"/>
+          <include name="New_tab"/>
+          <include name="google_login"/>
+          <include name="start"/>
+          <include name="end"/>
+          <include name="loging_out"/>
+          <include name="start1"/>
         </methods>
-      </class> <!-- com.dialpad.selenium.traviscl.SauceLab -->
+      </class> <!-- com.dialpad.selenium.traviscl.MyTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
