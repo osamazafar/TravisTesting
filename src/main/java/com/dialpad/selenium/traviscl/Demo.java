@@ -60,7 +60,7 @@ public class Demo
 		_logger.info(_webDriver.getTitle());
 		
 		_logger.info("*************** BEFORE CLICK ********************");
-		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getCurrentUrl()));
+		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getPageSource()));
 		
 		Thread.sleep(2000);
 		
@@ -71,13 +71,10 @@ public class Demo
 		_logger.info("Element to click info : {}", elementToClick);
 		
 		elementToClick.click();
-		
-		Thread.sleep(10000);
-		elementToClick.click();
 		_logger.info("hh" + _webDriver.getTitle());
 		
 		_logger.info("*************** AFTER CLICK ********************");
-		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getCurrentUrl()));
+		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getPageSource()));
 		
 		List<WebElement> elems = _webDriver.findElements(By.id("password"));
 		
