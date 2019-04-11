@@ -6,12 +6,15 @@ import java.util.List;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,32 +54,27 @@ public class Demo
 	public void google_login() throws InterruptedException
 
 	{
-		Thread.sleep(2000);
-		_webDriver.findElement(By.id("google-login-button")).click();
-		Thread.sleep(300);
-		Thread.sleep(2000);
-		_webDriver.findElement(By.id("identifierId")).click();
-		_webDriver.findElement(By.id("identifierId")).sendKeys(_supervisorId);
+		WebDriverWait wait = new WebDriverWait(_webDriver, 10);
+		WebElement e = wait.until(ExpectedConditions.elementToBeClickable(By.id("google-login-button")));
+		e.click();
+		
+		WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("identifierId")));
+		e1.sendKeys(_supervisorId);
+		e1.sendKeys(Keys.RETURN);
 		_logger.info(_webDriver.getTitle());
 		
 		_logger.info("*************** BEFORE CLICK ********************");
-		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getPageSource()));
-		
-		Thread.sleep(2000);
-		
+		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getCurrentUrl()));
+
 		_logger.info("**************** CLICKING **************************");
 		
-		WebElement elementToClick = _webDriver.findElement(By.cssSelector("#identifierNext > content > span"));
 		
-		_logger.info("Element to click info : {}", elementToClick);
-		
-		elementToClick.click();
 		_logger.info("hh" + _webDriver.getTitle());
 		
 		_logger.info("*************** AFTER CLICK ********************");
-		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getPageSource()));
+		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getCurrentUrl()));
 		
-		List<WebElement> elems = _webDriver.findElements(By.id("password"));
+		List<WebElement> elems = _webDriver.findElements(By.name("password"));
 		
 		if(elems == null || (elems != null && elems.size() == 0))
 		{
@@ -93,16 +91,15 @@ public class Demo
 				_logger.info(each.toString());
 			}
 		}
-		
-		_webDriver.findElement(By.name("password")).sendKeys(_supervisorPassword);
-		Thread.sleep(5000);
-		_webDriver.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
-		Thread.sleep(10000);
-		_webDriver.findElement(By.id("submit_approve_access")).click();
+		WebElement e2 = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
+		e2.sendKeys(_supervisorPassword);
+		e2.sendKeys(Keys.RETURN);
 
-		Thread.sleep(5000);
-		_webDriver.findElement(By.cssSelector("#announcement-view > div.iblock.dialog-close.ann-close > svg")).click();
-		Thread.sleep(100);
+		WebElement e3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("password")));
+		e3.click();
+		
+		WebElement e4 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#announcement-view > div.iblock.dialog-close.ann-close > svg")));
+		e4.click();
 		_logger.info("Clicked on closing");
 
 		_logger.info("printing: ");
