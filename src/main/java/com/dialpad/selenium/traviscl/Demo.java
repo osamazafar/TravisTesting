@@ -1,15 +1,22 @@
 package com.dialpad.selenium.traviscl;
 
+
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -33,6 +40,7 @@ public class Demo
 		_supervisorId = supervisorId;
 		_supervisorPassword = supervisorPassword;
 	}
+
 
 	public void start() throws InterruptedException, MalformedURLException
 	{
@@ -62,7 +70,7 @@ public class Demo
 		e1.sendKeys(_supervisorId);
 		e1.sendKeys(Keys.RETURN);
 		_logger.info(_webDriver.getTitle());
-		
+		captureScreenshot("Screenshot # 1");
 		_logger.info("*************** BEFORE CLICK ********************");
 		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getCurrentUrl()));
 
@@ -70,7 +78,7 @@ public class Demo
 		
 		
 		_logger.info("hh" + _webDriver.getTitle());
-		
+		captureScreenshot("Screenshot # 2");
 		_logger.info("*************** AFTER CLICK ********************");
 		_logger.info("page hash: {}", DigestUtils.sha256Hex(_webDriver.getCurrentUrl()));
 		
@@ -91,12 +99,10 @@ public class Demo
 				_logger.info(each.toString());
 			}
 		}
+		captureScreenshot("Screenshot # 3");
 		WebElement e2 = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
 		e2.sendKeys(_supervisorPassword);
 		e2.sendKeys(Keys.RETURN);
-
-		WebElement e3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("password")));
-		e3.click();
 		
 		WebElement e4 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#announcement-view > div.iblock.dialog-close.ann-close > svg")));
 		e4.click();
@@ -107,4 +113,40 @@ public class Demo
 		_logger.info("Ending");
 
 	}
+	
+/*
+	public void embedScreenshot(Scenario sceneio) throws InterruptedException
+	{
+		if(sceneio.isFailed())
+		{
+			try
+			{
+				byte [] screenshots = ((TakesScreenshot) _webDriver).getScreenshotAs(OutputType.BYTES);
+				sceneio.embed(screenshots, "image/png");
+			}
+			catch (WebDriverException wde)
+			{
+				System.err.println(wde.getMessage());
+			}
+			catch (ClassCastException cce)
+			{
+				System.err.println(cce.getMessage());
+			}
+		}
+	}*/
+		
+		public void captureScreenshot(String fileName)
+		{
+			File scrFile = ((TakesScreenshot) _webDriver).getScreenshotAs(OutputType.FILE);
+			try 
+			{
+				FileUtils.copyFile(scrFile, new File("/Users/osama/Downloads/screenshots" + fileName));
+			}
+			catch (IOException e)
+			{
+				_logger.info(e.getMessage());
+			}
+		}
+		
+	
 }

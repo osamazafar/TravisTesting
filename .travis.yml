@@ -16,6 +16,3 @@ before_script: bash docker_bash.sh
 
 script: bash code_run.sh
 
-
-after_script:
- -docker sh logs
