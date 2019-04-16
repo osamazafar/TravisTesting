@@ -16,7 +16,6 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -45,16 +44,18 @@ public class Demo
 	public void start() throws InterruptedException, MalformedURLException
 	{
 
+		//_options.setHeadless(true);
+		//_options.addArguments("screenshot");
+		//_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4444");
+	//	_capabilities = DesiredCapabilities.chrome();
+		//_capabilities.setCapability("version", "");
+		//_capabilities.setPlatform(Platform.LINUX);
+		//_capabilities.setJavascriptEnabled(true);
+		//_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
+		_webDriver = new RemoteWebDriver(new URL("http://172.17.0.2:4444/wd/hub"), _options);
 		_options.setHeadless(true);
 		_options.addArguments("screenshot");
 		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4444");
-		_capabilities = DesiredCapabilities.chrome();
-		_capabilities.setCapability("version", "");
-		_capabilities.setPlatform(Platform.LINUX);
-		_capabilities.setJavascriptEnabled(true);
-		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
-		_webDriver = new RemoteWebDriver(new URL("http://172.17.0.2:4444/wd/hub"), _capabilities);
-
 		//_webDriver = new ChromeDriver(_capabilities);
 		_webDriver.get("http://www.dialpadbeta.com/app");
 	}
