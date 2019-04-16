@@ -16,7 +16,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -46,7 +46,7 @@ public class Demo
 	{
 
 		_options.setHeadless(true);
-	
+		_options.addArguments("screenshot");
 		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4444");
 		_capabilities = DesiredCapabilities.chrome();
 		_capabilities.setCapability("version", "");
@@ -104,8 +104,6 @@ public class Demo
 		e2.sendKeys(_supervisorPassword);
 		e2.sendKeys(Keys.RETURN);
 		
-		WebElement e4 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#announcement-view > div.iblock.dialog-close.ann-close > svg")));
-		e4.click();
 		_logger.info("Clicked on closing");
 
 		_logger.info("printing: ");
@@ -144,7 +142,7 @@ public class Demo
 			}
 			catch (IOException e)
 			{
-				_logger.info(e.getMessage());
+				e.getStackTrace();
 			}
 		}
 		
