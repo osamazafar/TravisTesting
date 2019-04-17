@@ -54,7 +54,7 @@ public class Demo
 		//_capabilities.setJavascriptEnabled(true);
 		//_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
 		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
-		_webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _options);
+		_webDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), _options);
 		_options.setHeadless(true);
 		_options.addArguments("screenshot");
 	    _options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
