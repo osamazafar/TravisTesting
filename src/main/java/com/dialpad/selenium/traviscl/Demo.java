@@ -12,12 +12,13 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
+
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
+
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,7 +30,7 @@ public class Demo
 	private static final Logger _logger = LoggerFactory.getLogger(Demo.class);
 	
 	private WebDriver _webDriver;
-	private DesiredCapabilities _capabilities;
+	//private DesiredCapabilities _capabilities;
 	final private String _supervisorId;
 	final private String _supervisorPassword;
 	private ChromeOptions _options = new ChromeOptions();
@@ -55,8 +56,8 @@ public class Demo
 		_webDriver = new RemoteWebDriver(new URL("http://172.17.0.2:4444/wd/hub"), _options);
 		_options.setHeadless(true);
 		_options.addArguments("screenshot");
-		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4444");
-		//_webDriver = new ChromeDriver(_capabilities);
+	    _options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
+		//_webDriver = new ChromeDriver(_options);
 		_webDriver.get("http://www.dialpadbeta.com/app");
 	}
 
