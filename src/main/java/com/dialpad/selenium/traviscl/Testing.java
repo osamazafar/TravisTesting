@@ -2,6 +2,7 @@ package com.dialpad.selenium.traviscl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -27,17 +28,17 @@ public class Testing
 	public void start() throws InterruptedException, MalformedURLException
 	{
 
-		_options.setHeadless(true);
+		//_options.setHeadless(true);
 	
-		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4444");
+		//_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors", "--remote-debugging-port=4444");
 		_capabilities = DesiredCapabilities.chrome();
 		_capabilities.setCapability("version", "");
 		_capabilities.setPlatform(Platform.LINUX);
 		_capabilities.setJavascriptEnabled(true);
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
-		_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
+		//_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
 
-		//_wd = new ChromeDriver(_capabilities);
+		_wd = new ChromeDriver(_capabilities);
 		_wd.get("https://www.google.com/");
 		_logger.info(_wd.getTitle());
 	}
@@ -51,6 +52,21 @@ public class Testing
 		WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"rso\"]/div[1]/div/div[1]/div/div/div[1]/a/h3")));
 		e1.click();
 		_logger.info(_wd.getTitle());
+		WebElement e2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[1]/div[5]/ul[1]/li[2]/a")));
+		e2.click();
+		_logger.info(_wd.getTitle());
+		
+		 ArrayList<String> tabs = new ArrayList<String>(_wd.getWindowHandles());
+		 _wd.switchTo().window(tabs.get(1));
+		 Thread.sleep(200);
+		WebElement e3 = wait.until(ExpectedConditions.elementToBeClickable(By.name("identifier")));
+		e3.sendKeys("callback229@gmail.com");
+		e3.sendKeys(Keys.ENTER);
+		_logger.info(_wd.getTitle());
+		WebElement e4 = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
+		e4.sendKeys("Dialpad100");
+		e4.sendKeys(Keys.ENTER);
+		
 
 		_logger.info("its the end");
 	}
