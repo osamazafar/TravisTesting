@@ -56,7 +56,7 @@ public class Demo
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
 		
 		//_webDriver = new ChromeDriver(_options);
-		_webDriver = new RemoteWebDriver(new URL("http://locahost:4444/wd/hub"), _capabilities);
+		_webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
 		
 		_webDriver.get("http://www.dialpadbeta.com/app");
 	}
