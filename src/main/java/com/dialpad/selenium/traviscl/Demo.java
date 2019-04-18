@@ -52,8 +52,8 @@ public class Demo
 		//_capabilities.setCapability("version", "");
 		//_capabilities.setPlatform(Platform.LINUX);
 		//_capabilities.setJavascriptEnabled(true);
-		//_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
-		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
+		//_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);:wq
+		
 		_webDriver = new RemoteWebDriver(new URL("http://locahost:4444/wd/hub"), _options);
 		_options.setHeadless(true);
 		_options.addArguments("screenshot");
