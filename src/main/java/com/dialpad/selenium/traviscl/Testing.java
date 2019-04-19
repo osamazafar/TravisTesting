@@ -33,17 +33,18 @@ public class Testing
 	public void start() throws InterruptedException, MalformedURLException
 	{
 
+		
 		_options.setHeadless(true);
 	
-		//_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
+		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
 		_capabilities = DesiredCapabilities.chrome();
 		_capabilities.setCapability("version", "");
 		_capabilities.setPlatform(Platform.LINUX);
 		_capabilities.setJavascriptEnabled(true);
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
-		//_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
+		_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
 
-		_wd = new ChromeDriver(_capabilities);
+		//_wd = new ChromeDriver(_capabilities);
 		_wd.get("https://www.google.com/");
 		_logger.info(_wd.getTitle());
 		captureScreenshot("Screenshot #  0");
