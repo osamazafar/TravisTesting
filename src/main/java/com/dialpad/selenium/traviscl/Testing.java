@@ -34,17 +34,19 @@ public class Testing
 	{
 
 		
-		_options.setHeadless(true);
-	
-		_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
+		_options.addArguments("--headless");
+		//_options.addArguments("--disable-gpu");
+		_options.addArguments("--window-size=1280,800");
+		_options.addArguments("--allow-insecure-localhost");
+		//_options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
 		_capabilities = DesiredCapabilities.chrome();
 		_capabilities.setCapability("version", "");
 		_capabilities.setPlatform(Platform.LINUX);
 		_capabilities.setJavascriptEnabled(true);
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
-		_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
+		//_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
 
-		//_wd = new ChromeDriver(_capabilities);
+		_wd = new ChromeDriver(_options);
 		_wd.get("https://www.google.com/");
 		_logger.info(_wd.getTitle());
 		captureScreenshot("Screenshot #  0");
@@ -85,7 +87,7 @@ public class Testing
 		File scrFile = ((TakesScreenshot) _wd).getScreenshotAs(OutputType.FILE);
 		try 
 		{
-			FileUtils.copyFile(scrFile, new File("/Users/osama/Downloads/screenshots" + fileName));
+			FileUtils.copyFile(scrFile, new File("/Users/osama/Downloads/screenshots/" + fileName));
 		}
 		catch (IOException e)
 		{
