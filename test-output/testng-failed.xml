@@ -3,18 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.dialpad.selenium.traviscl.MyTest">
+      <class name="com.dialpad.selenium.traviscl.Testing">
         <methods>
-          <include name="logingOut"/>
-          <include name="googleLogin"/>
-          <include name="New_tab"/>
-          <include name="google_login"/>
+          <include name="action"/>
           <include name="start"/>
-          <include name="end"/>
-          <include name="loging_out"/>
-          <include name="start1"/>
         </methods>
-      </class> <!-- com.dialpad.selenium.traviscl.MyTest -->
+      </class> <!-- com.dialpad.selenium.traviscl.Testing -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
