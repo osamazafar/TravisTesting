@@ -46,9 +46,9 @@ public class Testing
 		_capabilities.setPlatform(Platform.LINUX);
 		_capabilities.setJavascriptEnabled(true);
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
-		//_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
+		_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
 
-		_wd = new ChromeDriver(_capabilities);
+		//_wd = new ChromeDriver(_capabilities);
 		_wd.get("https://www.google.com/gmail/about");
 		_logger.info(_wd.getTitle());
 		 captureScreenshot("Screenshot #  0");
