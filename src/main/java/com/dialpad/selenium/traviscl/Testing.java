@@ -68,17 +68,17 @@ public class Testing
 	  //  wb.get("https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
 		
 	    _logger.info(_wd.getTitle());
-		captureScreenshot("Screenshot # 1");
+		captureScreenshot("Screenshot # 2");
 		_logger.info(_wd.getTitle());
 		
-		/*WebElement e3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("identifierId")));
+		WebElement e3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("identifierId")));
 		e3.sendKeys("callback229@gmail.com");
 		e3.sendKeys(Keys.ENTER);
 		captureScreenshot("Screenshot # 2");
 		_logger.info(_wd.getTitle());
 		WebElement e4 = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
 		e4.sendKeys("Dialpad100");
-		e4.sendKeys(Keys.ENTER);*/
+		e4.sendKeys(Keys.ENTER);
 		
 
 		_logger.info("its the end");
