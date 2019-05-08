@@ -15,7 +15,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -36,7 +36,7 @@ public class Testing
 	{
 
 		
-		_options.addArguments("--headless");
+		//_options.addArguments("--headless");
 		_options.addArguments("--disable-gpu");
 		_options.addArguments("--window-size=1280,800");
 		_options.addArguments("--allow-insecure-localhost");
@@ -49,7 +49,7 @@ public class Testing
 		_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
 
 		//_wd = new ChromeDriver(_capabilities);
-		_wd.get("https://www.google.com/gmail/about");
+		_wd.get("https://www.google.com");
 		_logger.info(_wd.getTitle());
 		 captureScreenshot("Screenshot #  0");
 	}
@@ -57,28 +57,39 @@ public class Testing
 	public void action() throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(_wd, 20);
-		WebElement e = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[1]/div[5]/ul[1]/li[2]/a")));
-		e.click();
+		WebElement e = wait.until(ExpectedConditions.elementToBeClickable(By.name("q")));
+		e.sendKeys("gmail");
+		e.sendKeys(Keys.ENTER);
 		captureScreenshot("Screenshot #  1");
 		Thread.sleep(5000);
+		
+		WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/div/div[1]/a/h3")));
+		e1.click();
+		
+		
+		WebElement e2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[1]/div[5]/ul[1]/li[2]/a")));
+		e2.click();
+		
+		
+		
 		
 		((JavascriptExecutor) _wd).executeScript("");
 	    ArrayList<String> tabs = new ArrayList<String>(_wd.getWindowHandles());
 	    _wd.switchTo().window(tabs.get(1));
-	  //  wb.get("https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
+	   // _wd.get("https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
 		
-	    _logger.info(_wd.getTitle());
-		captureScreenshot("Screenshot # 2");
-		_logger.info(_wd.getTitle());
+	   
 		
+	/*	
 		WebElement e3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("identifierId")));
 		e3.sendKeys("callback229@gmail.com");
 		e3.sendKeys(Keys.ENTER);
+		 _logger.info(_wd.getTitle());
 		captureScreenshot("Screenshot # 2");
 		_logger.info(_wd.getTitle());
 		WebElement e4 = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
 		e4.sendKeys("Dialpad100");
-		e4.sendKeys(Keys.ENTER);
+		e4.sendKeys(Keys.ENTER);*/
 		
 
 		_logger.info("its the end");
