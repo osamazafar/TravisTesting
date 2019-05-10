@@ -56,11 +56,13 @@ public class Testing
 
 	public void action() throws InterruptedException
 	{
+		
+		
 		WebDriverWait wait = new WebDriverWait(_wd, 20);
 		WebElement e = wait.until(ExpectedConditions.elementToBeClickable(By.name("q")));
 		e.sendKeys("gmail");
 		e.sendKeys(Keys.ENTER);
-		captureScreenshot("Screenshot #  1");
+		captureScreenshot("Screenshot #  11");
 		Thread.sleep(4000);
 		
 		WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/div/div[1]/a/h3")));
