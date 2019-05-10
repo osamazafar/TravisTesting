@@ -15,7 +15,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -61,7 +61,7 @@ public class Testing
 		e.sendKeys("gmail");
 		e.sendKeys(Keys.ENTER);
 		captureScreenshot("Screenshot #  1");
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		
 		WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/div/div[1]/a/h3")));
 		e1.click();
@@ -76,11 +76,11 @@ public class Testing
 		((JavascriptExecutor) _wd).executeScript("");
 	    ArrayList<String> tabs = new ArrayList<String>(_wd.getWindowHandles());
 	    _wd.switchTo().window(tabs.get(1));
-	   // _wd.get("https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
+	  //_wd.get("https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
 		
 	   
 		
-	/*	
+	    Thread.sleep(2000);
 		WebElement e3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("identifierId")));
 		e3.sendKeys("callback229@gmail.com");
 		e3.sendKeys(Keys.ENTER);
@@ -89,8 +89,7 @@ public class Testing
 		_logger.info(_wd.getTitle());
 		WebElement e4 = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
 		e4.sendKeys("Dialpad100");
-		e4.sendKeys(Keys.ENTER);*/
-		
+		e4.sendKeys(Keys.ENTER);
 
 		_logger.info("its the end");
 	}
