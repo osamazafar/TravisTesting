@@ -30,7 +30,8 @@ public class Testing
 	private WebDriver _wd;
 	private DesiredCapabilities _capabilities;
 	private ChromeOptions _options = new ChromeOptions();
-	
+	String SupervisorID = "osamadialpad@gmail.com";
+	String SupervisorPass = "100California";
 	
 	public void start() throws InterruptedException, MalformedURLException
 	{
@@ -53,8 +54,45 @@ public class Testing
 		_logger.info(_wd.getTitle());
 		 captureScreenshot("Screenshot #  0");
 	}
+	
+	
+public void google_login() throws InterruptedException
+	
+	{
+		WebDriverWait wait = new WebDriverWait(_wd, 10);
+		//DateTimeFormatter dtf;  
+		_wd.findElement(By.id("google-login-button")).click();
+		Thread.sleep(300);
+		WebElement e = wait.until(ExpectedConditions.elementToBeClickable(By.id("identifierId")));
+		e.click(); 
+		e.sendKeys(SupervisorID);
+		e.sendKeys(Keys.ENTER);
+		WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
+		e1.click(); 
+		e1.sendKeys(SupervisorPass);
+		e1.sendKeys(Keys.ENTER);
+		
+		WebElement e2 = wait.until(ExpectedConditions.elementToBeClickable(By.id("submit_approve_access")));
+		e2.click(); 
+		WebElement e3 = wait.until(ExpectedConditions.elementToBeClickable(By.className("icon-sm")));
+		e3.click();
+		System.out.println("Clicked on closing");
+	}
 
-	public void action() throws InterruptedException
+public void loging_out() throws InterruptedException
+{
+	System.out.println("Entering into logout function");
+	WebDriverWait wait = new WebDriverWait(_wd, 10);
+	WebElement e = wait.until(ExpectedConditions.elementToBeClickable(By.id("main-menu")));
+	e.click();
+	
+	WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("logout")));
+	e1.click();
+	_wd.quit();
+
+}
+
+	/*public void action() throws InterruptedException
 	{
 		
 		
@@ -94,7 +132,7 @@ public class Testing
 		e4.sendKeys(Keys.ENTER);
 
 		_logger.info("its the end");
-	}
+	}*/
 	
 	public void captureScreenshot(String fileName)
 	{
@@ -113,8 +151,11 @@ public class Testing
 	public static void main(String [] args) throws InterruptedException, MalformedURLException
 	{
 		Testing ob1 = new Testing();
-		ob1.start();
-		ob1.action();
+		/*ob1.start();
+		ob1.action();*/
+		ob1.google_login();
+		ob1.loging_out();
+		
 	}
 
 }
