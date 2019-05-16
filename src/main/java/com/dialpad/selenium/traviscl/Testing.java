@@ -47,10 +47,10 @@ public class Testing
 		_capabilities.setPlatform(Platform.LINUX);
 		_capabilities.setJavascriptEnabled(true);
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
-		_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
+		//_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
 
-		//_wd = new ChromeDriver(_capabilities);
-		_wd.get("https://www.google.com");
+		_wd = new ChromeDriver(_capabilities);
+		_wd.get("https://www.dialpadbeta.com/app");
 		_logger.info(_wd.getTitle());
 		 captureScreenshot("Screenshot #  0");
 	}
@@ -67,6 +67,7 @@ public void google_login() throws InterruptedException
 		e.click(); 
 		e.sendKeys(SupervisorID);
 		e.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 		WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
 		e1.click(); 
 		e1.sendKeys(SupervisorPass);
@@ -151,8 +152,8 @@ public void loging_out() throws InterruptedException
 	public static void main(String [] args) throws InterruptedException, MalformedURLException
 	{
 		Testing ob1 = new Testing();
-		/*ob1.start();
-		ob1.action();*/
+		ob1.start();
+		//ob1.action();*/
 		ob1.google_login();
 		ob1.loging_out();
 		
