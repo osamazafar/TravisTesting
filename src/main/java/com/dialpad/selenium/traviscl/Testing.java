@@ -47,16 +47,16 @@ public class Testing
 		_capabilities.setPlatform(Platform.LINUX);
 		_capabilities.setJavascriptEnabled(true);
 		_capabilities.setCapability(ChromeOptions.CAPABILITY, _options);
-		//_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
+		_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
 
-		_wd = new ChromeDriver(_capabilities);
-		_wd.get("https://www.dialpadbeta.com/app");
+		//_wd = new ChromeDriver(_capabilities);
+		_wd.get("https://www.google.com");
 		_logger.info(_wd.getTitle());
 		 captureScreenshot("Screenshot #  0");
 	}
 	
 	
-public void google_login() throws InterruptedException
+/*public void google_login() throws InterruptedException
 	
 	{
 		WebDriverWait wait = new WebDriverWait(_wd, 10);
@@ -91,9 +91,9 @@ public void loging_out() throws InterruptedException
 	e1.click();
 	_wd.quit();
 
-}
+}*/
 
-	/*public void action() throws InterruptedException
+	public void action() throws InterruptedException
 	{
 		
 		
@@ -132,8 +132,9 @@ public void loging_out() throws InterruptedException
 		e4.sendKeys("Dialpad100");
 		e4.sendKeys(Keys.ENTER);
 
+		_logger.info(_wd.getTitle());
 		_logger.info("its the end");
-	}*/
+	}
 	
 	public void captureScreenshot(String fileName)
 	{
@@ -153,9 +154,9 @@ public void loging_out() throws InterruptedException
 	{
 		Testing ob1 = new Testing();
 		ob1.start();
-		//ob1.action();*/
-		ob1.google_login();
-		ob1.loging_out();
+		ob1.action();
+		//ob1.google_login();
+		//ob1.loging_out();
 		
 	}
 
