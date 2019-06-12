@@ -50,9 +50,10 @@ public class Testing
 		_wd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), _capabilities);
 
 		//_wd = new ChromeDriver(_capabilities);
+		
 		_wd.get("https://www.google.com");
 		_logger.info(_wd.getTitle());
-		 captureScreenshot("Screenshot #  0");
+		 captureScreenshot("Screenshot#1");
 	}
 	
 	
