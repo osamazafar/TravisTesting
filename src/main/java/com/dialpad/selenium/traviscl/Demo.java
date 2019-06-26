@@ -72,6 +72,32 @@ public class Demo {
 		
 	}
 	
+	public void google_login222() throws InterruptedException
+
+	{
+		Thread.sleep(2000);
+		wb.findElement(By.id("google-login-button")).click();
+		Thread.sleep(300);
+		wb.findElement(By.id("identifierId")).click();
+		wb.findElement(By.id("identifierId")).sendKeys(SupervisorID);
+		wb.findElement(By.cssSelector("#identifierNext > content > span")).click();
+		//wb.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS); 
+		Thread.sleep(2000);
+		wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click(); 
+		Thread.sleep(2000);
+		/*wb.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(SupervisorPassword);
+		Thread.sleep(2000);
+		wb.findElement(By.xpath("//*[@id=\"passwordNext\"]/content")).click();
+		Thread.sleep(2000);
+		wb.findElement(By.xpath("//*[@id=\"submit_approve_access\"]/content")).click();
+		Thread.sleep(10000);*/
+		System.out.println("Clicked on closing");
+
+		System.out.println("printing: ");
+		wb.quit();
+		System.out.println("Ending");
+		
+	}
 	
 	public static void main(String[] args) throws InterruptedException, MalformedURLException {
 		// TODO Auto-generated method stub
