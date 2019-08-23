@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 
-import org.junit.Rule;
+
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.By;
@@ -175,8 +175,8 @@ public class MyTest {
 
 	        protected void failed(Throwable e, Description description) {
 	            // Make the filename safe to write to disk
-	            String testName = description.getMethodName();
-	            String safeFileName = testName.replaceAll("[^a-zA-Z0-9-_\\.]", "_");
+	           // String testName = description.getMethodName();
+	         //   String safeFileName = testName.replaceAll("[^a-zA-Z0-9-_\\.]", "_");
 	          // takeScreenshot(safeFileName);
 
 	            logBrowserConsoleLogs();
